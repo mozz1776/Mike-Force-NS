@@ -14,7 +14,7 @@
 #define SPAWN_TIME_LONG 60
 
 #define UNLOCKED {}
-#define LOCKED_PUBLIC_HELOS {"MACV", "DacCong", "GreenHornets", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdTASG", "7thCAV", "TigerForce", "SASR", "ARVN"}
+#define LOCKED_PUBLIC_HELOS {"MACV", "DacCong", "GreenHornets", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdCSG", "7thCAV", "TigerForce", "SASR", "ARVN"}
 #define LOCKED_LIMITED_ARMOR {"MACV", "DacCong", "3rdMEU", "QuarterHorse", "ACAV", "TigerForce", "MilitaryPolice", "ARVN"}
 
 #define LOCKED_MACV_DACCONG {"MACV", "DacCong"}
@@ -32,7 +32,7 @@
 #define LOCKED_PRESS {"MACV", "DacCong", "PressCorp"}
 
 // #define LOCKED_SCOUT_MG {"MACV", "DacCong", "7thCAV", "Muskets"}
-// #define LOCKED_ONLY_WLUS {"MACV", "DacCong", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdTASG", "7thCAV", "TigerForce", "SASR", "ARVN"}
+// #define LOCKED_ONLY_WLUS {"MACV", "DacCong", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdCSG", "7thCAV", "TigerForce", "SASR", "ARVN"}
 
 /*
 **Code is read more often than it is written.**
@@ -60,7 +60,84 @@ please try to stick to that order in future so it's easy to find things!
 
 
 class spawn_point_types {
+//Nickel Steel
+	class SA_air_cas_light {
 
+		name = "Bronco (CAS) [Satan's Angels]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_SHORT;
+		lockTeams[] = LOCKED_SATANS_ANGELS;
+
+		class categories {
+			class broncousaf {
+				name = "OV-10 Bronco USAF";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ov10a_navy_bmb",
+					"vnx_b_air_ov10a_navy_cap",
+					"vnx_b_air_ov10a_navy_cas",
+					"vnx_b_air_ov10a_navy_ehcas",
+					"vnx_b_air_ov10a_navy_hbmb",
+					"vnx_b_air_ov10a_navy_mr",
+					"vnx_b_air_ov10a_navy_mbmb",
+					"vnx_b_air_ov10a_navy_hcas",
+					"vnx_b_air_ov10a_navy_lbmb",
+				};
+			};
+			class broncousmc {
+				name = "OV-10 Bronco USMC";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ov10a_usmc_bmb",
+					"vnx_b_air_ov10a_usmc_cap",
+					"vnx_b_air_ov10a_usmc_cas",
+					"vnx_b_air_ov10a_usmc_ehcas",
+					"vnx_b_air_ov10a_usmc_hbmb",
+					"vnx_b_air_ov10a_usmc_hcas",
+					"vnx_b_air_ov10a_usmc_lbmb",
+					"vnx_b_air_ov10a_usmc_mbmb",
+					"vnx_b_air_ov10a_usmc_mr",
+				};
+			};
+			class broncocovey {
+				name = "OV-10 Bronco Covey";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ov10a_covey",
+					"vnx_b_air_ov10a_cryer",
+					"vnx_b_air_ov10a_aus_covey",
+				};
+			};
+		};
+	};
+
+	class unlocked_air_cas_heavy {
+
+		name = "C-119 Transport [Public]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_MEDIUM;
+		lockTeams[] = UNLOCKED;
+
+		class categories {
+			class c119t {
+				name = "C119 Transport";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ac119_02_01",
+					"vnx_b_air_ac119_02_02",
+				};
+			};
+			class c119c {
+				name = "C119 Cargo";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ac119_03_01",
+					"vnx_b_air_ac119_03_02",
+				};
+			};
+		};
+	};
+//End Nickel Steel
 	class unlocked_air_transport_light {
 
 		name = "Helicopters (Scout) [Public]";
@@ -135,6 +212,9 @@ class spawn_point_types {
 					"vn_b_air_uh1f_01_03",
 					"vn_b_air_uh1c_07_03",
 					"vn_b_air_uh1c_07_04",
+					"vnx_b_air_hh1h_04_01", //Nickel Steel
+					"vnx_b_air_hh1h_01_01", //Nickel Steel
+					"vnx_b_air_hh1h_02_01", //Nickel Steel
 				};
 			};
 			class ch47 {
@@ -157,6 +237,8 @@ class spawn_point_types {
 					"vn_i_air_ch34_02_02",
 					"vn_b_air_ch34_01_01",
 					"vn_b_air_ch34_03_01",
+					"vnx_b_air_hh34_03_01", //Nickel Steel
+					"vnx_b_air_hh34_01_01", //Nickel Steel
 				};
 			};
 		};
@@ -239,11 +321,11 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_TRUCK;
 				vehicles[] = {
 					"vn_b_wheeled_m54_01",
-					// "vn_b_wheeled_m54_01_sog",
+					"vn_b_wheeled_m54_01_sog",
 					"vn_b_wheeled_m54_01_usmc",
 					"vn_b_wheeled_m54_02",
 					"vn_b_wheeled_m54_02_usmc",
-					// "vn_b_wheeled_m54_02_sog",
+					"vn_b_wheeled_m54_02_sog",
 					"vn_b_wheeled_m54_03",
 					"vn_b_wheeled_m54_03_usmc",
 				};
@@ -271,6 +353,17 @@ class spawn_point_types {
 					"vn_b_armor_m113_acav_05",
 					"vn_b_armor_m577_01",
 					"vn_b_armor_m577_02",
+					"vnx_b_armor_m163_01", //Nickel Steel
+				};
+			};
+			class lvtp {
+				name = "APC (LVTP)";
+				icon = VEHICLE_ICON_ARMOUR;
+				vehicles[] = {
+					"vnx_b_armor_lvtp5_01",
+					"vnx_b_armor_lvtp5c_01_usmc",
+					//"vnx_b_armor_lvte1_01_usmc",
+					"vnx_b_armor_lvtr1_01_usmc",
 				};
 			};
 			class trucks {
@@ -278,11 +371,11 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_TRUCK;
 				vehicles[] = {
 					"vn_b_wheeled_m54_01",
-					//"vn_b_wheeled_m54_01_sog",
+					"vn_b_wheeled_m54_01_sog",
 					"vn_b_wheeled_m54_01_usmc",
 					"vn_b_wheeled_m54_02",
 					"vn_b_wheeled_m54_02_usmc",
-					//"vn_b_wheeled_m54_02_sog",
+					"vn_b_wheeled_m54_02_sog",
 					"vn_b_wheeled_m54_03",
 					"vn_b_wheeled_m54_03_usmc",
 				};
@@ -329,11 +422,11 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_TRUCK;
 				vehicles[] = {
 					"vn_b_wheeled_m54_01",
-					//"vn_b_wheeled_m54_01_sog",
+					"vn_b_wheeled_m54_01_sog",
 					"vn_b_wheeled_m54_01_usmc",
 					"vn_b_wheeled_m54_02",
 					"vn_b_wheeled_m54_02_usmc",
-					//"vn_b_wheeled_m54_02_sog",
+					"vn_b_wheeled_m54_02_sog",
 					"vn_b_wheeled_m54_03",
 					"vn_b_wheeled_m54_03_usmc",
 				};
@@ -468,6 +561,8 @@ class spawn_point_types {
 					"vn_b_armor_m41_01_01",
 					"vn_b_armor_m48_01_02",
 					"vn_b_armor_m41_01_02",
+					"vnx_b_armor_m50_01",
+					"vnx_b_armor_m50a1_01",
 				};
 			};
 			class apc_us {
@@ -645,35 +740,117 @@ class spawn_point_types {
 				name = "Utility Lift";
 				icon = VEHICLE_ICON_HELO;
 				vehicles[] = {
+					"vnx_b_air_hh1h_01_01",
+					"vnx_b_air_hh1h_02_01",
 					"vn_b_air_oh6a_01",
-					"vn_b_air_uh1d_02_03",
-					"vn_b_air_uh1f_01_03",
 				};
 			};		
 			class medical {
 				name = "Medical Lift";
 				icon = VEHICLE_ICON_HELO;
 				vehicles[] = {
-					"vn_b_air_uh1b_01_03",
-					"vn_b_air_uh1d_01_03",
-					"vn_b_air_ch47_02_01",
+					"vnx_b_air_hh1h_04_01",
 				};
 			};
 			class heavy {
 				name = "Heavy Lift";
 				icon = VEHICLE_ICON_HELO;
 				vehicles[] = {
+					"vnx_b_air_hh34_01_01",
 					"vn_b_air_ch47_01_01",
 					"vn_b_air_ch47_03_01",
 					"vn_b_air_ch47_04_01",
-					"vn_i_air_ch34_01_02",
-					"vn_i_air_ch34_02_02",
-					"vn_b_air_ch34_01_01",
-					"vn_b_air_ch34_03_01",
 				};
 			};	
 		};
 	};
+	
+	class 633rd_air_cas_light {
+
+		name = "Bronco (CAS) [633rd]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_SHORT;
+		lockTeams[] = LOCKED_633RD;
+
+		class categories {
+			class broncousaf {
+				name = "OV-10 Bronco USAF";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ov10a_navy_bmb",
+					"vnx_b_air_ov10a_navy_cap",
+					"vnx_b_air_ov10a_navy_cas",
+					"vnx_b_air_ov10a_navy_ehcas",
+					"vnx_b_air_ov10a_navy_hbmb",
+					"vnx_b_air_ov10a_navy_mr",
+					"vnx_b_air_ov10a_navy_mbmb",
+					"vnx_b_air_ov10a_navy_hcas",
+					"vnx_b_air_ov10a_navy_lbmb",
+				};
+			};
+			class broncousmc {
+				name = "OV-10 Bronco USMC";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ov10a_usmc_bmb",
+					"vnx_b_air_ov10a_usmc_cap",
+					"vnx_b_air_ov10a_usmc_cas",
+					"vnx_b_air_ov10a_usmc_ehcas",
+					"vnx_b_air_ov10a_usmc_hbmb",
+					"vnx_b_air_ov10a_usmc_hcas",
+					"vnx_b_air_ov10a_usmc_lbmb",
+					"vnx_b_air_ov10a_usmc_mbmb",
+					"vnx_b_air_ov10a_usmc_mr",
+				};
+			};
+			class broncocovey {
+				name = "OV-10 Bronco Covey";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ov10a_covey",
+					"vnx_b_air_ov10a_cryer",
+					"vnx_b_air_ov10a_aus_covey",
+				};
+			};
+		};
+	};
+	
+	
+	class 633rd_air_transport_boxcar_custom {
+
+		name = "AC119 Gunship (CAS) [633rd]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_MEDIUM;
+		lockTeams[] = LOCKED_633RD;
+
+		class categories {
+			class ac119 {
+				name = "AC119";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ac119_01_01",
+					"vnx_b_air_ac119_04_01",
+				};
+			};
+			class c119t {
+				name = "C119 Transport";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ac119_02_01",
+					"vnx_b_air_ac119_02_02",
+				};
+			};
+			class c119c {
+				name = "C119 Cargo";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ac119_03_01",
+					"vnx_b_air_ac119_03_02",
+				};
+			};
+		};
+	};
+	
 /*
 	class 633rd_air_dustoff_medical_custom {
 
@@ -772,6 +949,10 @@ class spawn_point_types {
 				vehicles[] = {
 					"vn_i_wheeled_m151_mg_01",
 					"vn_i_wheeled_m151_mg_06",
+					"vnx_o_wheeled_tuktuk_mg_01_kr",
+					"vnx_o_wheeled_tuktuk_mg_02_kr",
+					"vnx_o_wheeled_tuktuk_01_kr",
+					
 				};
 			};
 		};
@@ -1164,42 +1345,7 @@ class spawn_point_types {
 		};
 	};
 
-	class muskets_grd_transport_light {
-
-		name = "Jeeps/Mules [Muskets]";
-		respawnType = SPAWN_TYPE_RESPAWN;
-		time = SPAWN_TIME_SHORT;
-		lockTeams[] = LOCKED_MUSKETS;
-
-		class categories {
-			class m151_us {
-				name = "M151A1 Unarmed (US Army)";
-				icon = VEHICLE_ICON_CAR;
-				vehicles[] = {
-					"vn_b_wheeled_m151_01",
-					"vn_b_wheeled_m151_02",
-					"vn_b_wheeled_m151_mg_03",
-				};
-			};
-			class mule {
-				name = "M274 Mule Unarmed";
-				icon = VEHICLE_ICON_CAR;
-				vehicles[] = {
-					"vn_b_wheeled_m274_01_01",
-					"vn_b_wheeled_m274_02_01",
-				};
-			};
-		};
-	};
-
 	// satans angels /////////////////////////////////////////////////////////////////
-
-		class satans_air_transport_all: unlocked_air_transport_all {
-
-		name = "Helicopters (Transport) [Satan's Angels]";
-		lockTeams[] = LOCKED_SATANS_ANGELS;
-
-	};
 
 	class satansangels_air_jets_runway_custom {
 
@@ -1224,6 +1370,19 @@ class spawn_point_types {
 					"vn_b_air_f4b_navy_at",
 				};
 			};
+			class a4 {
+				name = "A4 SKYHAWK";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_a4e_usmc_at",
+					"vnx_b_air_a4e_usn_at",
+					"vnx_b_air_a4e_ran_at",
+					"vnx_b_air_a4e_rnzaf_at",
+				};
+			};
+			
+			
+			
 		};
 	};
 
@@ -1240,6 +1399,13 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_PLANE;
 				vehicles[] = {
 					"vn_b_air_f4b_navy_at",
+				};
+			};
+			class a4 {
+				name = "A4 SKYHAWK";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_a4e_usn_at",
 				};
 			};
 		};
@@ -1283,6 +1449,8 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_ARMOUR;
 				vehicles[] = {
 					"vn_b_armor_m113_01",
+					"vnx_b_armor_m50_01",
+					"vnx_b_armor_m50a1_01",
 					// "vn_b_armor_m113_acav_06",  // disabled by @dijksterhuis after speaking to huck
 					// "vn_b_armor_m125_01",  // disabled by @dijksterhuis after speaking to huck
 				};
@@ -1438,9 +1606,10 @@ class spawn_point_types {
 				name = "APC";
 				icon = VEHICLE_ICON_ARMOUR;
 				vehicles[] = {
-					"vn_b_armor_m125_01",
-					"vn_b_armor_m132_01",
-					"vn_b_armor_m113_acav_06",
+					"vnx_b_armor_lvtp5_01",
+					"vnx_b_armor_lvtp5c_01_usmc",
+					//"vnx_b_armor_lvte1_01_usmc",
+					"vnx_b_armor_lvtr1_01_usmc",
 				};
 			};
 			class usmctank {
@@ -1450,6 +1619,8 @@ class spawn_point_types {
 					"vn_b_armor_m48_01_02",
 					"vn_b_armor_m41_01_02",
 					"vn_b_armor_m67_01_02",
+					"vnx_b_armor_m50_01_usmc",
+					"vnx_b_armor_m50a1_01_usmc",
 				};
 			};
 		};
@@ -1500,6 +1671,7 @@ class spawn_point_types {
 					"vn_c_car_01_01",
 					"vn_c_car_02_01",
 					"vn_c_car_03_01",
+					"vnx_c_wheeled_tuktuk_01_01",
 				};
 			};
 		};
