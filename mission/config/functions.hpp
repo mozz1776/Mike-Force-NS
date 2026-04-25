@@ -446,12 +446,14 @@ class CfgFunctions
 			class tunnels_register_tunnel {};
 			class tunnels_unregister_tunnel {};
 			class tunnels_add_actions {};
+			class tunnels_add_reentry_actions {};
 			class tunnels_action_disable_trap {};
 			class tunnels_open_tunnel_server {};
 			class tunnels_eject_player_client {};
 			class tunnels_spawn_objective_ai {};
 			class tunnels_eject_players {};
 			class tunnels_cleanup_ai {};
+			class tunnels_fallout_detection {};
 		};
 
 		// simple scheduled utility job to make triple sure that critical
